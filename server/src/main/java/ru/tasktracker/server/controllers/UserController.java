@@ -73,7 +73,7 @@ public class UserController {
 
             User user = session.createQuery("from User where email = :email", User.class)
                     .setParameter("email", userReqBody.getEmail())
-                    .getSingleResult();
+                    .getSingleResultOrNull();
             if (user != null) {
                 throw new Exception("User with this email already exists");
             }
@@ -125,7 +125,7 @@ public class UserController {
 
             User user = session.createQuery("from User where email = :email", User.class)
                     .setParameter("email", userReqBody.getEmail())
-                    .getSingleResult();
+                    .getSingleResultOrNull();
             if (user == null) {
                 throw new Exception("User with this email does not exist");
             } else if (!passwordEncoder.matches(userReqBody.getPassword(), user.getPassword())) {

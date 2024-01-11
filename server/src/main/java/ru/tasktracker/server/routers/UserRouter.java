@@ -20,7 +20,7 @@ public class UserRouter implements HttpHandler {
             new UserController(exchange).register();
         } else if (requestMethod.equalsIgnoreCase("POST") && path.equalsIgnoreCase("/user/login")) {
             new UserController(exchange).login();
-        } else if (requestMethod.equalsIgnoreCase("GET") && path.equalsIgnoreCase("/user/privilege")) {
+        } else if (requestMethod.equalsIgnoreCase("GET") && path.startsWith("/user/privilege")) {
             new UserController(exchange).privilege();
         } else {
             HttpUtility.sendResponse(exchange, HttpURLConnection.HTTP_BAD_REQUEST, new UserResBody(false, "Invalid request"));
