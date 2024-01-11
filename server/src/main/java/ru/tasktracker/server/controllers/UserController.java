@@ -91,10 +91,10 @@ public class UserController {
 
             List<Task> tasks;
             if (user.getRole().getId() == 1) {
-                tasks = session.createQuery("from Task", Task.class)
+                tasks = session.createQuery("from Task order by expirationTime asc", Task.class)
                         .getResultList();
             } else {
-                tasks = session.createQuery("from Task where user = :user", Task.class)
+                tasks = session.createQuery("from Task where user = :user order by expirationTime asc", Task.class)
                         .setParameter("user", user)
                         .getResultList();
             }
@@ -137,10 +137,10 @@ public class UserController {
 
             List<Task> tasks;
             if (user.getRole().getId() == 1) {
-                tasks = session.createQuery("from Task", Task.class)
+                tasks = session.createQuery("from Task order by expirationTime asc", Task.class)
                         .getResultList();
             } else {
-                tasks = session.createQuery("from Task where user = :user", Task.class)
+                tasks = session.createQuery("from Task where user = :user order by expirationTime asc", Task.class)
                         .setParameter("user", user)
                         .getResultList();
             }

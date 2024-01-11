@@ -45,10 +45,10 @@ public class TaskController {
 
             List<Task> tasks;
             if (session.get(User.class, userId).getRole().getId() == 1) {
-                tasks = session.createQuery("from Task", Task.class)
+                tasks = session.createQuery("from Task order by expirationTime asc", Task.class)
                         .getResultList();
             } else {
-                tasks = session.createQuery("from Task where user.id = :userId", Task.class)
+                tasks = session.createQuery("from Task where user.id = :userId order by expirationTime asc", Task.class)
                         .setParameter("userId", userId)
                         .getResultList();
             }
