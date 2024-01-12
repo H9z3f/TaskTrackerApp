@@ -3,7 +3,6 @@ package ru.tasktracker.server;
 import com.sun.net.httpserver.HttpServer;
 import ru.tasktracker.server.routers.TaskRouter;
 import ru.tasktracker.server.routers.UserRouter;
-import ru.tasktracker.server.utilities.HibernateUtility;
 import ru.tasktracker.server.utilities.SystemUtility;
 
 import java.io.IOException;
@@ -41,7 +40,5 @@ public class Server {
 
     private void start() {
         httpServer.start();
-
-        HibernateUtility.setSessionFactory();
     }
 }

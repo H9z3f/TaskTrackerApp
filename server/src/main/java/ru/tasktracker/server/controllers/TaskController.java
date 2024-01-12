@@ -82,7 +82,7 @@ public class TaskController {
                 throw new Exception("Not enough permissions");
             }
 
-            TaskReqBody taskReqBody = HttpUtility.getTaskReqBody(exchange);
+            TaskReqBody taskReqBody = HttpUtility.getReqBody(exchange, TaskReqBody.class);
             if (taskReqBody.getTitle().equals("") || taskReqBody.getDescription().equals("")) {
                 throw new Exception("Fields cannot be empty");
             }
@@ -142,7 +142,7 @@ public class TaskController {
                 throw new Exception("Not enough permissions");
             }
 
-            TaskReqBody taskReqBody = HttpUtility.getTaskReqBody(exchange);
+            TaskReqBody taskReqBody = HttpUtility.getReqBody(exchange, TaskReqBody.class);
             if (taskReqBody.getTitle().equals("") || taskReqBody.getDescription().equals("")) {
                 throw new Exception("Fields cannot be empty");
             }

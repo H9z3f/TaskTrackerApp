@@ -66,7 +66,7 @@ public class UserController {
         session.beginTransaction();
 
         try {
-            UserReqBody userReqBody = HttpUtility.getUserReqBody(exchange);
+            UserReqBody userReqBody = HttpUtility.getReqBody(exchange, UserReqBody.class);
             if (userReqBody.getFullName().equals("") || userReqBody.getEmail().equals("") || userReqBody.getPassword().equals("")) {
                 throw new Exception("Fields cannot be empty");
             }
@@ -118,7 +118,7 @@ public class UserController {
         session.beginTransaction();
 
         try {
-            UserReqBody userReqBody = HttpUtility.getUserReqBody(exchange);
+            UserReqBody userReqBody = HttpUtility.getReqBody(exchange, UserReqBody.class);
             if (userReqBody.getEmail().equals("") || userReqBody.getPassword().equals("")) {
                 throw new Exception("Fields cannot be empty");
             }
